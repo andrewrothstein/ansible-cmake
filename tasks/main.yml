@@ -1,0 +1,55 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for install
+  become: yes
+  stat:
+    path: '{{ cmake_install_dir }}'
+  changed_when: False
+  register: cmake_binary
+- when: not cmake_binary.stat.exists
+  block:
+    - name: download...
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ cmake_url }}'
+        dest: /tmp/{{ cmake_archive }}
+        checksum: '{{ cmake_checksum }}'
+        mode: 0644
+    - name: unarchive...
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{ cmake_archive }}
+        dest: '{{ cmake_parent_install_dir }}'
+        creates: '{{ cmake_install_dir }}'
+  always:
+    - name: cleanup
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{ cmake_archive }}
+        state: absent
+- name: links...
+  become: yes
+  become_user: root
+  with_items:
+    - ccmake
+    - cmake
+    - cmake-gui
+    - cpack
+    - ctest
+  file:
+    src: '{{ cmake_install_dir }}/bin/{{ item }}'
+    dest: '{{ cmake_parent_install_dir }}/bin/{{ item }}'
+    state: link

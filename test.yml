@@ -1,0 +1,11 @@
+---
+- hosts: all
+  roles:
+  - role: '{{ playbook_dir }}'
+- hosts: all
+  tasks:
+  - name: test cmake executable
+    command: /usr/local/bin/cmake --version
+    register: cmake_test_output
+  - debug:
+      msg: '{{ cmake_test_output.stdout }}'

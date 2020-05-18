@@ -1,0 +1,18 @@
+---
+# defaults file for cmake
+cmake_ver: 3.17.2
+cmake_mirror: https://github.com/Kitware/CMake/releases/download
+cmake_os: Linux
+cmake_arch: x86_64
+cmake_parent_install_dir: /usr/local
+cmake_checksums:
+  # https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-SHA-256.txt
+  '3.17.2':
+      # https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-win64-x64.zip
+      win64-x64: sha256:cf82b1eb20b6fbe583487656fcd496490ffccdfbcbba0f26e19f1c9c63b0b041
+      # https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-win32-x86.zip
+      win32-x86: sha256:66a68a1032ad1853bcff01778ae190cd461d174d6a689e1c646e3e9886f01e0a
+      # https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Darwin-x86_64.tar.gz
+      Darwin-x86_64: sha256:139500e20b080444fcafe57f24f57248c691c5187cce6695bee2b9aad6792c7d
+      # https://github.com/Kitware/CMake/releases/download/v3.17.2/cmake-3.17.2-Linux-x86_64.tar.gz
+      Linux-x86_64: sha256:dc57f3cc448ca67fc8776b4ad4c22b087b9c6a8e459938b9622b8c7f4ef6b21e
