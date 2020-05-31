@@ -35,4 +35,4 @@ dl_ver() {
     dl $ver $lchecksums Darwin x86_64
     dl $ver $lchecksums Linux x86_64
 }
-dl_ver ${1:-3.17.2}
+dl_ver ${1:-3.17.3}
