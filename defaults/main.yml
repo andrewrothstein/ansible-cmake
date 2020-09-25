@@ -1,6 +1,6 @@
 ---
 # defaults file for cmake
-cmake_ver: 3.18.1
+cmake_ver: 3.18.3
 cmake_mirror: https://github.com/Kitware/CMake/releases/download
 cmake_os: Linux
 cmake_arch: x86_64
@@ -46,3 +46,23 @@ cmake_checksums:
       Darwin-x86_64: sha256:f5c5a1f82f94b8eedcab3a95510ba59f9b1f598cb82aaf6bf8c0d72d2b245f46
       # https://github.com/Kitware/CMake/releases/download/v3.18.1/cmake-3.18.1-Linux-x86_64.tar.gz
       Linux-x86_64: sha256:537de8ad3a7fb4ec9b8517870db255802ad211aec00002c651e178848f7a769e
+  # https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-SHA-256.txt
+  '3.18.2':
+      # https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-win64-x64.zip
+      win64-x64: sha256:5f4ec834fbd9b62fbf73bc48ed459fa2ea6a86c403106c90fedc2ac76d51612d
+      # https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-win32-x86.zip
+      win32-x86: sha256:209c7e3cf0eb7e83801858397e48322479eaacbf296b8c02d4d7d4614b1ce5e3
+      # https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Darwin-x86_64.tar.gz
+      Darwin-x86_64: sha256:7cf5525169b723e6b7544a44c391c36d855df3b51355d60e3aed53d640b8569c
+      # https://github.com/Kitware/CMake/releases/download/v3.18.2/cmake-3.18.2-Linux-x86_64.tar.gz
+      Linux-x86_64: sha256:7b73ef901eb9fe615977a4f2254521cf9ee9da7efcd20c621a61ead51a870948
+  # https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-SHA-256.txt
+  '3.18.3':
+      # https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-win64-x64.zip
+      win64-x64: sha256:6b442a2e7877105ff80b8e5d116221ef37a5faea840d916658e2defe8551d4b3
+      # https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-win32-x86.zip
+      win32-x86: sha256:f3f3ae2dc602100717ccec26436d97c85dd2944c59c02e71a1dc71b2e2f098da
+      # https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Darwin-x86_64.tar.gz
+      Darwin-x86_64: sha256:23fdff2063858db8027994660321d9c9cf824fdb92481e20eed148a07fb42953
+      # https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Linux-x86_64.tar.gz
+      Linux-x86_64: sha256:eb23bac95873cc0bc3946eed5d1aea6876ac03f7c0dcc6ad3a05462354b08228
