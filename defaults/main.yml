@@ -1,6 +1,6 @@
 ---
 # defaults file for cmake
-cmake_ver: 3.19.0
+cmake_ver: 3.19.1
 cmake_mirror: https://github.com/Kitware/CMake/releases/download
 cmake_os: Linux
 cmake_arch: x86_64
@@ -86,3 +86,13 @@ cmake_checksums:
       Darwin-x86_64: sha256:315eb5500753f797075b6ea43189420e97b0b9f32c8fc87ec94ba1d80b72eb7f
       # https://github.com/Kitware/CMake/releases/download/v3.19.0/cmake-3.19.0-Linux-x86_64.tar.gz
       Linux-x86_64: sha256:5446cdee900e906e46162a5a7be9b4542bb5e886041cf8cffeda62aae2696ccf
+  # https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-SHA-256.txt
+  '3.19.1':
+      # https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-win64-x64.zip
+      win64-x64: sha256:e95d70549f306adb46e0f131dcecdbcbc6412d3a1e073c2c0078812391bf21d3
+      # https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-win32-x86.zip
+      win32-x86: sha256:7c01b9cc29a0e5051c11c605b7dd43d187fb25b277e7a3dc4085b9eaf36a0387
+      # https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-Darwin-x86_64.tar.gz
+      Darwin-x86_64: sha256:8b1caf1da7bc738a27c820ca8dc2ddb610b7526b4507095de87d79cd5a27028b
+      # https://github.com/Kitware/CMake/releases/download/v3.19.1/cmake-3.19.1-Linux-x86_64.tar.gz
+      Linux-x86_64: sha256:587fb2d882214511f4b260329800de7903eba7827498f06a0dee234ed579bdc3
