@@ -32,8 +32,8 @@ dl_ver() {
 
     dl $ver $lchecksums win64 x64 zip
     dl $ver $lchecksums win32 x86 zip
-    dl $ver $lchecksums Darwin x86_64
+    dl $ver $lchecksums macos universal
     dl $ver $lchecksums Linux x86_64
 }
 
-dl_ver ${1:-3.19.1}
+dl_ver ${1:-3.19.2}
