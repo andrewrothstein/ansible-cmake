@@ -1,6 +1,6 @@
 andrewrothstein.cmake
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-cmake.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-cmake)
+![Build Status](https://github.com/andrewrothstein/ansible-cmake/actions/workflows/build.yml/badge.svg)
 
 Installs [CMake](https://cmake.org/)
 
