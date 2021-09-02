@@ -1,6 +1,6 @@
 ---
 # defaults file for cmake
-cmake_ver: 3.21.1
+cmake_ver: 3.21.2
 cmake_mirror: https://github.com/Kitware/CMake/releases/download
 cmake_os: linux
 cmake_arch: x86_64
