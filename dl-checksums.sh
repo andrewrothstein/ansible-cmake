@@ -24,7 +24,7 @@ dl_ver() {
     local lchecksums=$DIR/$checksums
     if [ ! -e $lchecksums ];
     then
-        wget -q -O $lchecksums $url
+        curl -sSLf -o $lchecksums $url
     fi
 
     printf "  # %s\n" $url
@@ -37,4 +37,4 @@ dl_ver() {
     dl $ver $lchecksums linux aarch64
 }
 
-dl_ver ${1:-3.23.0}
+dl_ver ${1:-3.23.1}
