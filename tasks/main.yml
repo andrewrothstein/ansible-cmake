@@ -10,15 +10,15 @@
       paths:
         - '{{ role_path }}/vars'
 - name: checking for install in {{ cmake_install_dir }}
-  become: yes
+  become: true
   stat:
     path: '{{ cmake_install_dir }}'
-  changed_when: False
+  changed_when: false
   register: cmake_binary
 - when: not cmake_binary.stat.exists
   block:
     - name: downloading {{ cmake_url }}
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ cmake_url }}'
@@ -26,22 +26,22 @@
         checksum: '{{ cmake_checksum }}'
         mode: 0644
     - name: unarchiving {{ cmake_tmp_archive }} to {{ cmake_parent_install_dir }}
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ cmake_tmp_archive }}'
         dest: '{{ cmake_parent_install_dir }}'
         creates: '{{ cmake_install_dir }}'
   always:
     - name: rm {{ cmake_tmp_archive }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ cmake_tmp_archive }}'
         state: absent
 - name: linking to apps in {{ cmake_install_dir }}/bin from {{ cmake_parent_install_dir }}/bin
-  become: yes
+  become: true
   become_user: root
   with_items:
     - ccmake
