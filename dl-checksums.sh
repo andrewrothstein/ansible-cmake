@@ -12,8 +12,8 @@ dl() {
     local platform="${os}-${arch}"
     local file="cmake-${ver}-${platform}.${archive_type}"
     local url=$MIRROR/v$ver/$file
-    printf "      # %s\n" $url
-    printf "      %s: sha256:%s\n" $platform $(grep -e "$file\$" $lchecksums | awk '{print $1}')
+    printf "    # %s\n" $url
+    printf "    %s: sha256:%s\n" $platform $(grep -e "$file\$" $lchecksums | awk '{print $1}')
 }
 
 dl_ver() {
@@ -37,4 +37,4 @@ dl_ver() {
     dl $ver $lchecksums linux aarch64
 }
 
-dl_ver ${1:-3.23.2}
+dl_ver ${1:-3.23.3}
