@@ -7,9 +7,6 @@ galaxy_info:
     - MIT
   min_ansible_version: 2.0
   platforms:
-    - name: Alpine
-      versions:
-        - all
     - name: Archlinux
       versions:
         - all
@@ -36,4 +33,3 @@ galaxy_info:
 
 dependencies:
   - andrewrothstein.unarchive-deps
-  - andrewrothstein.alpine-glibc-shim
