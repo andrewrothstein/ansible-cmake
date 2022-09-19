@@ -30,11 +30,11 @@ dl_ver() {
     printf "  # %s\n" $url
     printf "  '%s':\n" $ver
 
-    dl $ver $lchecksums windows x86_64 zip
     dl $ver $lchecksums windows i386 zip
+    dl $ver $lchecksums windows x86_64 zip
     dl $ver $lchecksums macos universal
     dl $ver $lchecksums linux x86_64
     dl $ver $lchecksums linux aarch64
 }
 
-dl_ver ${1:-3.24.1}
+dl_ver ${1:-3.24.2}

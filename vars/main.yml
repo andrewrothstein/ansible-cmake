@@ -1,5 +1,7 @@
 ---
 # vars file for cmake
+cmake_os: '{{ ansible_system | lower }}'
+cmake_arch: '{% if cmake_os == "darwin" %}universal{% else %}{{ cmake_arch_map[ansible_architecture] }}{% endif %}'
 cmake_platform: '{{ cmake_os }}-{{ cmake_arch }}'
 cmake_name: cmake-{{ cmake_ver }}-{{ cmake_platform }}
 cmake_archive: '{{ cmake_name }}.{{ cmake_archive_type | default("tar.gz") }}'
