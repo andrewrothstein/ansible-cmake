@@ -1,6 +1,6 @@
 ---
 # defaults file for cmake
-cmake_ver: 3.27.9
+cmake_ver: 3.28.0
 cmake_mirror: https://github.com/Kitware/CMake/releases/download
 cmake_arch_map:
   386: i386
@@ -513,3 +513,15 @@ cmake_checksums:
     linux-x86_64: sha256:72b01478eeb312bf1a0136208957784fe55a7b587f8d9f9142a7fc9b0b9e9a28
     # https://github.com/Kitware/CMake/releases/download/v3.27.9/cmake-3.27.9-linux-aarch64.tar.gz
     linux-aarch64: sha256:11bf3d30697df465cdf43664a9473a586f010c528376a966fd310a3a22082461
+  # https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-SHA-256.txt
+  '3.28.0':
+    # https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-windows-i386.zip
+    windows-i386: sha256:3a08a671e67168acefe533c212592d02b57224a215689725d9a60bd6320a1abb
+    # https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-windows-x86_64.zip
+    windows-x86_64: sha256:3096d5d708476cfe37f6c64da480b974f29c01bf5baae314c679c1e2fde8994f
+    # https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-macos-universal.tar.gz
+    macos-universal: sha256:e27b6f1b286fd2f678ed02158ff74a915c2f5f6d9e56c12a2b95038c1088c639
+    # https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-x86_64.tar.gz
+    linux-x86_64: sha256:898f0b5ca6e2ea5286998e97bd33f030d7d09f18ca4b88be661fdfbad5dadd88
+    # https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-aarch64.tar.gz
+    linux-aarch64: sha256:3a29efd9fce558254b870730ab6f9a672cde1c1e7b128e010ae5582937b99788
