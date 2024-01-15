@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Installing and testing cmake
+  hosts: all
   tasks:
     - name: Install cmake
       ansible.builtin.include_role:
