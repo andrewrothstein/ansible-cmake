@@ -1,11 +1,13 @@
 ---
 - hosts: all
-  roles:
-  - role: '{{ playbook_dir }}'
-- hosts: all
   tasks:
-  - name: test cmake executable
-    command: /usr/local/bin/cmake --version
-    register: cmake_test_output
-  - debug:
-      msg: '{{ cmake_test_output.stdout }}'
+    - name: Install cmake
+      ansible.builtin.include_role:
+        name: '{{ playbook_dir }}'
+    - name: Testing 'cmake --version'
+      ansible.builtin.command: /usr/local/bin/cmake --version
+      changed_when: false
+      register: cmake_test_output
+    - name: Output of 'cmake --version'
+      ansible.builtin.debug:
+        msg: '{{ cmake_test_output.stdout }}'
