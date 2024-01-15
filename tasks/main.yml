@@ -1,7 +1,8 @@
 ---
-- include_role:
+- name: Install unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
+- name: Resolve platform specific vars
   include_vars: '{{ item }}'
   with_first_found:
     - files:
@@ -11,38 +12,39 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: checking for install in {{ cmake_install_dir }}
+- name: Checking for install in {{ cmake_install_dir }}
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ cmake_install_dir }}'
   changed_when: false
   register: cmake_binary
-- when: not cmake_binary.stat.exists
+- name: Installing cmake
+  when: not cmake_binary.stat.exists
   block:
-    - name: downloading {{ cmake_url }}
+    - name: Downloading {{ cmake_url }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ cmake_url }}'
         dest: '{{ cmake_tmp_archive }}'
         checksum: '{{ cmake_checksum }}'
-        mode: 0644
-    - name: unarchiving {{ cmake_tmp_archive }} to {{ cmake_parent_install_dir }}
+        mode: '644'
+    - name: Unarchiving {{ cmake_tmp_archive }} to {{ cmake_parent_install_dir }}
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ cmake_tmp_archive }}'
         dest: '{{ cmake_parent_install_dir }}'
         creates: '{{ cmake_install_dir }}'
   always:
-    - name: rm {{ cmake_tmp_archive }}
+    - name: Rm {{ cmake_tmp_archive }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ cmake_tmp_archive }}'
         state: absent
-- name: linking to apps in {{ cmake_install_dir }}/bin from {{ cmake_parent_install_dir }}/bin
+- name: Linking to apps in {{ cmake_install_dir }}/bin from {{ cmake_parent_install_dir }}/bin
   become: true
   become_user: root
   with_items:
@@ -51,7 +53,7 @@
     - cmake-gui
     - cpack
     - ctest
-  file:
+  ansible.builtin.file:
     src: '{{ cmake_install_dir }}/bin/{{ item }}'
     dest: '{{ cmake_parent_install_dir }}/bin/{{ item }}'
     state: link

@@ -3,10 +3,9 @@
 cmake_ver: 3.28.1
 cmake_mirror: https://github.com/Kitware/CMake/releases/download
 cmake_arch_map:
-  386: i386
   aarch64: aarch64
   x86_64: x86_64
-cmake_arch: x86_64
+  x86_32: i386
 cmake_parent_install_dir: /usr/local
 cmake_checksums:
   # https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0-SHA-256.txt
