@@ -1,0 +1,49 @@
+---
+- name: Checking for install in {{ cmake_install_dir }}
+  become: true
+  ansible.builtin.stat:
+    path: '{{ cmake_install_dir }}'
+  changed_when: false
+  register: cmake_binary
+- name: Installing cmake
+  when: not cmake_binary.stat.exists
+  block:
+    - name: Downloading {{ cmake_url }}
+      become: true
+      become_user: root
+      ansible.builtin.get_url:
+        url: '{{ cmake_url }}'
+        dest: '{{ cmake_tmp_archive }}'
+        checksum: '{{ cmake_checksum }}'
+        mode: '644'
+    - name: Install unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
+    - name: Unarchiving {{ cmake_tmp_archive }} to {{ cmake_parent_install_dir }}
+      become: true
+      become_user: root
+      ansible.builtin.unarchive:
+        remote_src: true
+        src: '{{ cmake_tmp_archive }}'
+        dest: '{{ cmake_parent_install_dir }}'
+        creates: '{{ cmake_install_dir }}'
+  always:
+    - name: Rm {{ cmake_tmp_archive }}
+      become: true
+      become_user: root
+      ansible.builtin.file:
+        path: '{{ cmake_tmp_archive }}'
+        state: absent
+- name: Linking to apps in {{ cmake_install_dir }}/bin from {{ cmake_parent_install_dir }}/bin
+  become: true
+  become_user: root
+  with_items:
+    - ccmake
+    - cmake
+    - cmake-gui
+    - cpack
+    - ctest
+  ansible.builtin.file:
+    src: '{{ cmake_install_dir }}/bin/{{ item }}'
+    dest: '{{ cmake_parent_install_dir }}/bin/{{ item }}'
+    state: link

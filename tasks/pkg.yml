@@ -1,0 +1,5 @@
+---
+- name: Installing OS pkgs...
+  ansible.builtin.package:
+    name: '{{ cmake_pkgs | default(["cmake"]) }}'
+    state: present
